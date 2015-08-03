@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DatePicker</string>
+    <string name="tile">Welcome to the date picker</string>
+    <string name="pick_date">Select the date</string>
+    <string name="pick_time">Select the time</string>
+    <string name="action_settings">Settings</string>
+    <string name="welcome">Welcome to reminder</string>
+    <string name="instruction">Fill in the fields and create desired event</string>
+    <string name="event_name">Event Name</string>
+    <string name="event_location">Event Location</string>
+    <string name="event_description">Event Description</string>
+    <string name="set_event">Set Reminder</string>
+</resources>
