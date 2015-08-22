@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
@@ -13,7 +14,7 @@ import android.support.v4.app.NotificationCompat;
 // Creating Alarm Receiver, who will listen upcomming events
 public class AlarmReceiver extends BroadcastReceiver {
 
-//Creating method on receive. When intnet is received on front screen we should see notification
+    //Creating method on receive. When intnet is received on front screen we should see notification
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -25,15 +26,27 @@ public class AlarmReceiver extends BroadcastReceiver {
         //setig up RingtonManger who will notify user about received notification
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
+
+
         //Handling the notifications, and attributes which will be displayed on front screen
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setContentTitle(name + "," + location);
         builder.setAutoCancel(true);
         builder.setContentText(description);
-        builder.setSmallIcon(R.drawable.alarm_icon1);
+        builder.setSmallIcon(R.drawable.pozadina1);
         builder.setSound(soundUri);
         builder.setTicker("New event");
 
+        //Handling the notification for Smart Watch
+
+        NotificationCompat.WearableExtender extender = new NotificationCompat.WearableExtender();
+        extender.setBackground(BitmapFactory.decodeResource(context.getResources(), (R.drawable.pozadina1)));
+        extender.setContentIcon(R.drawable.image);
+
+
+        // extender.setHintHideIcon(true);
+        // extender.setContentIcon(R.drawable.alarm_icon1);
+        extender.extend(builder);
 
 
         NotificationManager nm = (NotificationManager) context
