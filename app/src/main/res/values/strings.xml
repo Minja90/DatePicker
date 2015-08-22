@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DatePicker</string>
+    <string name="app_name">Reminder</string>
     <string name="tile">Welcome to the date picker</string>
     <string name="pick_date">Select the date</string>
     <string name="pick_time">Select the time</string>

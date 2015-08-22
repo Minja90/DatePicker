@@ -26,26 +26,18 @@ public class AlarmReceiver extends BroadcastReceiver {
         //setig up RingtonManger who will notify user about received notification
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-
-
         //Handling the notifications, and attributes which will be displayed on front screen
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setContentTitle(name + "," + location);
         builder.setAutoCancel(true);
         builder.setContentText(description);
-        builder.setSmallIcon(R.drawable.pozadina1);
+        builder.setSmallIcon(R.drawable.slika3);
         builder.setSound(soundUri);
         builder.setTicker("New event");
 
         //Handling the notification for Smart Watch
-
         NotificationCompat.WearableExtender extender = new NotificationCompat.WearableExtender();
         extender.setBackground(BitmapFactory.decodeResource(context.getResources(), (R.drawable.pozadina1)));
-        extender.setContentIcon(R.drawable.image);
-
-
-        // extender.setHintHideIcon(true);
-        // extender.setContentIcon(R.drawable.alarm_icon1);
         extender.extend(builder);
 
 
