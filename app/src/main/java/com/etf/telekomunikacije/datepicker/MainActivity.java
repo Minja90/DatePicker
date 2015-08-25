@@ -32,13 +32,14 @@ public class MainActivity extends FragmentActivity implements DateTimePicked{
     //Selected date and time
     Calendar dateAndTimeCalendar;
 
-
+    int uniqueCode ;
 
     //when activity is created
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent otvori=getIntent();
 
         eventNAME = (EditText) findViewById(R.id.editText1);
         eventLocation = (EditText) findViewById(R.id.editText2);
@@ -89,9 +90,10 @@ public class MainActivity extends FragmentActivity implements DateTimePicked{
         alarmIntent.putExtra(EVENT_LOCATION, eventLocation.getText().toString());
         alarmIntent.putExtra(EVENT_DESCRIPTION, eventDescription.getText().toString());
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, alarmIntent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, uniqueCode , alarmIntent, 0);
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         manager.set(AlarmManager.RTC_WAKEUP, dateAndTimeCalendar.getTimeInMillis(), pendingIntent);
+        uniqueCode++;
     }
 
     //interface

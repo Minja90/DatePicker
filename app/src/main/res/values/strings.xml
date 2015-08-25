@@ -10,4 +10,8 @@
     <string name="event_location">Event Location</string>
     <string name="event_description">Event Description</string>
     <string name="set_event">Set Reminder</string>
+    <string name="title_activity_welcome">NewReminder</string>
+    <string name="welcome_screen">Welcome to reminder</string>
+    <string name="first_activity">FirstActivity</string>
+    <string name="second_activity">SecondActivity</string>
 </resources>
