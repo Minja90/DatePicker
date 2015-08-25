@@ -15,7 +15,7 @@ import java.util.Calendar;
 public class TimePickerFragment extends DialogFragment
         implements TimePickerDialog.OnTimeSetListener {
 
-    //local variable neccessary for showing right toast format
+    //local variable necessary for showing right toast format
     public String format;
 
 

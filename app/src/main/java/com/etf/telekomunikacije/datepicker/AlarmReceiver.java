@@ -19,6 +19,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         //variable values from three edit text fields
+
         String name = intent.getStringExtra(MainActivity.EVENT_NAME);
         String description = intent.getStringExtra(MainActivity.EVENT_DESCRIPTION);
         String location = intent.getStringExtra(MainActivity.EVENT_LOCATION);

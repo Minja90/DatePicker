@@ -48,7 +48,7 @@ public class DatePickerFragment extends DialogFragment
         return new DatePickerDialog(getActivity(), this, year, month, day);
     }
 
-    //When date is choosen
+    //When date is chosen
     public void onDateSet(DatePicker view, int year, int month, int day) {
         day_x = day;
         month_x = month+1;

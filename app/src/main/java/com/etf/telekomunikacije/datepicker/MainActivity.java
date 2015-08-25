@@ -13,6 +13,7 @@ import android.widget.EditText;
 
 import java.util.Calendar;
 import java.util.Random;
+import java.util.TimeZone;
 
 
 public class MainActivity extends FragmentActivity implements DateTimePicked{
@@ -33,8 +34,7 @@ public class MainActivity extends FragmentActivity implements DateTimePicked{
     //Selected date and time
     Calendar dateAndTimeCalendar;
 
-    //variable used for pending intent
-    int uniqueCode ;
+
 
     //when activity is created
     @Override
@@ -102,7 +102,7 @@ public class MainActivity extends FragmentActivity implements DateTimePicked{
 
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         manager.set(AlarmManager.RTC_WAKEUP, dateAndTimeCalendar.getTimeInMillis(), pendingIntent);
-        //uniqueCode++;
+
     }
 
 
@@ -119,6 +119,7 @@ public class MainActivity extends FragmentActivity implements DateTimePicked{
     //interface
     @Override
     public void onTimeSelected(int hour, int minute) {
+        dateAndTimeCalendar.setTimeZone(TimeZone.getDefault());
         dateAndTimeCalendar.set(Calendar.HOUR, hour);
         dateAndTimeCalendar.set(Calendar.MINUTE, minute);
         dateAndTimeCalendar.set(Calendar.SECOND, 0);
