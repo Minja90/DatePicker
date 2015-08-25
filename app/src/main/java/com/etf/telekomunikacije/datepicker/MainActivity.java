@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.util.Calendar;
+import java.util.Random;
 
 
 public class MainActivity extends FragmentActivity implements DateTimePicked{
@@ -32,6 +33,7 @@ public class MainActivity extends FragmentActivity implements DateTimePicked{
     //Selected date and time
     Calendar dateAndTimeCalendar;
 
+    //variable used for pending intent
     int uniqueCode ;
 
     //when activity is created
@@ -83,18 +85,27 @@ public class MainActivity extends FragmentActivity implements DateTimePicked{
 
     }
 
-    //Seting the alarm manager, who will send the intent to the system with all neccessary data
+    //Seting the alarm manager, who will send the intent to the system with all necessary data
     public void setAlarm(Calendar dateAndTimeCalendar) {
+
         Intent alarmIntent = new Intent(MainActivity.this, AlarmReceiver.class);
+
         alarmIntent.putExtra(EVENT_NAME, eventNAME.getText().toString());
         alarmIntent.putExtra(EVENT_LOCATION, eventLocation.getText().toString());
         alarmIntent.putExtra(EVENT_DESCRIPTION, eventDescription.getText().toString());
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, uniqueCode , alarmIntent, 0);
+
+        Random generator = new Random();
+
+        //PendingIntent pendingIntent = PendingIntent.getBroadcast(this, uniqueCode , alarmIntent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, generator.nextInt(), alarmIntent, PendingIntent.FLAG_ONE_SHOT);
+
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         manager.set(AlarmManager.RTC_WAKEUP, dateAndTimeCalendar.getTimeInMillis(), pendingIntent);
-        uniqueCode++;
+        //uniqueCode++;
     }
+
+
 
     //interface
     @Override
