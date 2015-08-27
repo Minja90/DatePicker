@@ -102,6 +102,10 @@ public class MainActivity extends FragmentActivity implements DateTimePicked{
 
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         manager.set(AlarmManager.RTC_WAKEUP, dateAndTimeCalendar.getTimeInMillis(), pendingIntent);
+        
+        /*long time = dateTimePicker.getTimeInMills();
+Log.e("***MINJA***", time); http://www.epochconverter.com/
+AM.setExact(...)*/
 
     }
 
