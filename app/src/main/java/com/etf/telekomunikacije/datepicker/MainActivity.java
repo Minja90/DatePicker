@@ -75,12 +75,14 @@ public class MainActivity extends FragmentActivity implements DateTimePicked{
     //method which call class DatePickerFragment and show the date picker
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment1 = new DatePickerFragment();
+        // newFragment1.setDatePickedListener(this);
         newFragment1.show(getFragmentManager(), "datePicker");
 
     }
     //method which call class TimePickerFragment and show the time picker
     public void showTimePickerDialog (View v) {
         DialogFragment newFragment = new TimePickerFragment();
+        // newFragment1.setDatePickedListener(this);
         newFragment.show(getFragmentManager(), "timePicker");
 
     }
