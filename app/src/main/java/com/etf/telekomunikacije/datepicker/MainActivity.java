@@ -105,7 +105,10 @@ public class MainActivity extends FragmentActivity implements DateTimePicked{
         
         /*long time = dateTimePicker.getTimeInMills();
 Log.e("***MINJA***", time); http://www.epochconverter.com/
-AM.setExact(...)*/
+AM.setExact(...)
+
+Calendar.set(year + 1900, month, date)  probaj ovo
+*/
 
     }
 
